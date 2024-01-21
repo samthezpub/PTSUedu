@@ -1,8 +1,7 @@
-package com.example.ptsuedu.service;
+package com.example.ptsuedu.Service;
 
-import com.example.ptsuedu.entity.Post;
 
-import java.util.List;
+import com.example.ptsuedu.Entity.Post;
 
 public interface PostService {
 
