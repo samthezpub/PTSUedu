@@ -1,21 +1,21 @@
-package com.example.ptsuedu.entity;
+package com.example.ptsuedu.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private Subject subjects;
+    private List<Subject> subjects;
 
 }

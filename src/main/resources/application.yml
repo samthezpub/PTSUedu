@@ -4,6 +4,7 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 
   datasource:
@@ -11,3 +12,9 @@ spring:
     username: uld6wyy3sa4cdtucqnrp
     password: YQTVRAJncdduvvLlnsFuVKK4ODxR7i
     driver-class-name: org.postgresql.Driver
+
+#keycloak:
+#  auth-server-url: http://localhost:9080/auth
+#  realm: pstuEdu
+#  resource: pstuEdu_client
+#  public-client: true
