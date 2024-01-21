@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+
+
+  datasource:
+    url: jdbc:postgresql://bjutglfn6fnj9kkfrfut-postgresql.services.clever-cloud.com:50013/bjutglfn6fnj9kkfrfut
+    username: uld6wyy3sa4cdtucqnrp
+    password: YQTVRAJncdduvvLlnsFuVKK4ODxR7i
+    driver-class-name: org.postgresql.Driver
