@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Repository;
+package com.example.ptsuedu.repository;
 
 
 import com.example.ptsuedu.Entity.Post;

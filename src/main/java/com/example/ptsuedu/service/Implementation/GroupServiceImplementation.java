@@ -1,10 +1,10 @@
-package com.example.ptsuedu.Service.Implementation;
+package com.example.ptsuedu.service.Implementation;
 
 import com.example.ptsuedu.Entity.Group;
-import com.example.ptsuedu.Exception.GroupNotFoundException;
-import com.example.ptsuedu.Exception.GroupNotUniqueException;
-import com.example.ptsuedu.Repository.GroupRepository;
-import com.example.ptsuedu.Service.GroupService;
+import com.example.ptsuedu.exception.GroupNotFoundException;
+import com.example.ptsuedu.exception.GroupNotUniqueException;
+import com.example.ptsuedu.repository.GroupRepository;
+import com.example.ptsuedu.service.GroupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

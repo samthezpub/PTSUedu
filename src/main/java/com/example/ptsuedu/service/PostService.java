@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Service;
+package com.example.ptsuedu.service;
 
 
 import com.example.ptsuedu.Entity.Post;

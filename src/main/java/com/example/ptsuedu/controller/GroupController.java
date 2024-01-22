@@ -1,9 +1,9 @@
-package com.example.ptsuedu.Controller;
+package com.example.ptsuedu.controller;
 
 import com.example.ptsuedu.Entity.Group;
-import com.example.ptsuedu.Exception.GroupNotFoundException;
-import com.example.ptsuedu.Exception.GroupNotUniqueException;
-import com.example.ptsuedu.Service.Implementation.GroupServiceImplementation;
+import com.example.ptsuedu.exception.GroupNotFoundException;
+import com.example.ptsuedu.exception.GroupNotUniqueException;
+import com.example.ptsuedu.service.Implementation.GroupServiceImplementation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

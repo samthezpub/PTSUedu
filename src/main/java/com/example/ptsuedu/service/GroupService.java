@@ -1,8 +1,8 @@
-package com.example.ptsuedu.Service;
+package com.example.ptsuedu.service;
 
 import com.example.ptsuedu.Entity.Group;
-import com.example.ptsuedu.Exception.GroupNotFoundException;
-import com.example.ptsuedu.Exception.GroupNotUniqueException;
+import com.example.ptsuedu.exception.GroupNotFoundException;
+import com.example.ptsuedu.exception.GroupNotUniqueException;
 
 public interface GroupService {
     void createGroup(Group group) throws GroupNotUniqueException;

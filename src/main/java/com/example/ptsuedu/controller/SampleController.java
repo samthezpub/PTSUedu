@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Controller;
+package com.example.ptsuedu.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
