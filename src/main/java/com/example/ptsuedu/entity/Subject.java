@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Subject {
+public class Subject extends Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
