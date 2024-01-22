@@ -2,14 +2,12 @@ package com.example.ptsuedu.Controller;
 
 import com.example.ptsuedu.Entity.Group;
 import com.example.ptsuedu.Exception.GroupNotFoundException;
+import com.example.ptsuedu.Exception.GroupNotUniqueException;
 import com.example.ptsuedu.Service.Implementation.GroupServiceImplementation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -17,6 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class GroupController {
     private final GroupServiceImplementation groupService;
 
+    @PostMapping("/create")
+    public ResponseEntity<?> createGroup(@RequestBody Group group){
+        try {
+            groupService.createGroup(group);
+
+            String serverAnswer = String.format("Группа %s создана!", group.getName());
+            return new ResponseEntity<>(serverAnswer, HttpStatus.CREATED);
+        } catch (GroupNotUniqueException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
 
     @GetMapping("/get")
     public ResponseEntity<?> getGroup(@RequestParam Long id){
