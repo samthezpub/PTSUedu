@@ -1,10 +1,9 @@
-package com.example.ptsuedu.Service.Implementation;
+package com.example.pstuedu.service.implementation;
 
-import com.example.ptsuedu.Entity.Subject;
-import com.example.ptsuedu.Repository.SubjectRepository;
-import com.example.ptsuedu.Service.SubjectService;
+import com.example.pstuedu.entity.Subject;
+import com.example.pstuedu.repository.SubjectRepository;
+import com.example.pstuedu.service.SubjectService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

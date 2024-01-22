@@ -1,6 +1,6 @@
-package com.example.ptsuedu.Service;
+package com.example.pstuedu.service;
 
-import com.example.ptsuedu.Entity.Subject;
+import com.example.pstuedu.entity.Subject;
 
 public interface SubjectService {
     void createSubject(Subject subject);

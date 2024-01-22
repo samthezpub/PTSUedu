@@ -1,7 +1,7 @@
-package com.example.ptsuedu.Repository;
+package com.example.pstuedu.repository;
 
 
-import com.example.ptsuedu.Entity.Post;
+import com.example.pstuedu.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

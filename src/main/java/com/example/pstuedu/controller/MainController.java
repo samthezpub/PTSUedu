@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Controller;
+package com.example.pstuedu.controller;
 
 import org.springframework.stereotype.Controller;
 

@@ -1,4 +1,4 @@
-package com.example.ptsuedu.securityConfig;
+package com.example.pstuedu.securityConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

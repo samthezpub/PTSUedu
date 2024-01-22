@@ -1,6 +1,6 @@
-package com.example.ptsuedu.Entity;
+package com.example.pstuedu.entity;
 
-import com.example.ptsuedu.Enum.EntityStatusEnum;
+import com.example.pstuedu.enums.EntityStatusEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

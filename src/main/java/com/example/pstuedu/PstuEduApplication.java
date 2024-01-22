@@ -1,13 +1,13 @@
-package com.example.ptsuedu;
+package com.example.pstuedu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PtsuEduApplication {
+public class PstuEduApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PtsuEduApplication.class, args);
+        SpringApplication.run(PstuEduApplication.class, args);
     }
 
 }

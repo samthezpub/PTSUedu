@@ -1,9 +1,9 @@
-package com.example.ptsuedu.Service.Implementation;
+package com.example.pstuedu.service.implementation;
 
-import com.example.ptsuedu.Entity.Post;
-import com.example.ptsuedu.Repository.PostRepository;
+import com.example.pstuedu.entity.Post;
+import com.example.pstuedu.repository.PostRepository;
 
-import com.example.ptsuedu.Service.PostService;
+import com.example.pstuedu.service.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
