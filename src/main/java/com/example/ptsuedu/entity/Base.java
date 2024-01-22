@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Entity;
+package com.example.ptsuedu.entity;
 
 import com.example.ptsuedu.Enum.EntityStatusEnum;
 import jakarta.persistence.*;

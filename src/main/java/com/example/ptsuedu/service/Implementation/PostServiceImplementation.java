@@ -1,6 +1,6 @@
 package com.example.ptsuedu.service.Implementation;
 
-import com.example.ptsuedu.Entity.Post;
+import com.example.ptsuedu.entity.Post;
 import com.example.ptsuedu.repository.PostRepository;
 
 import com.example.ptsuedu.service.PostService;

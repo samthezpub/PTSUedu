@@ -1,6 +1,7 @@
 package com.example.ptsuedu.service.Implementation;
 
-import com.example.ptsuedu.Entity.Group;
+
+import com.example.ptsuedu.entity.Group;
 import com.example.ptsuedu.exception.GroupNotFoundException;
 import com.example.ptsuedu.exception.GroupNotUniqueException;
 import com.example.ptsuedu.repository.GroupRepository;

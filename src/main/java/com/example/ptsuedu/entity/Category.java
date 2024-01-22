@@ -1,5 +1,6 @@
-package com.example.ptsuedu.Entity;
+package com.example.ptsuedu.entity;
 
+import com.example.ptsuedu.entity.Subject;
 import jakarta.persistence.*;
 import lombok.Data;
 

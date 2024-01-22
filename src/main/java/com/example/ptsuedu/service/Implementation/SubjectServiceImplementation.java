@@ -1,6 +1,6 @@
 package com.example.ptsuedu.service.Implementation;
 
-import com.example.ptsuedu.Entity.Subject;
+import com.example.ptsuedu.entity.Subject;
 import com.example.ptsuedu.repository.SubjectRepository;
 import com.example.ptsuedu.service.SubjectService;
 import lombok.RequiredArgsConstructor;

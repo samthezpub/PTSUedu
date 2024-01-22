@@ -1,6 +1,6 @@
 package com.example.ptsuedu.repository;
 
-import com.example.ptsuedu.Entity.Subject;
+import com.example.ptsuedu.entity.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
