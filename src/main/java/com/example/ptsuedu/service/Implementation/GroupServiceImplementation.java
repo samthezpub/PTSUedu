@@ -16,7 +16,7 @@ public class GroupServiceImplementation implements GroupService {
     private final GroupRepository groupRepository;
     @Override
     public void createGroup(Group group) throws GroupNotUniqueException {
-        if (groupRepository.findGroupByName(group.getName()).isEmpty()){
+        if (!groupRepository.findGroupByName(group.getName()).isEmpty()){
             throw new GroupNotUniqueException("Данная группа уже существует!");
         }
         groupRepository.save(group);

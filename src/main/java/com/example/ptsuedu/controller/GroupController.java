@@ -27,12 +27,22 @@ public class GroupController {
         }
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<?> getGroup(@RequestParam Long id){
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getGroup(@PathVariable Long id){
         try {
             return new ResponseEntity<>(groupService.findGroupById(id), HttpStatus.OK) ;
         } catch (GroupNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<?> deleteGroup(@PathVariable Long id){
+        try {
+            groupService.deleteGroup(id);
+            return new ResponseEntity<>("Группа успешно удалена!", HttpStatus.OK);
+        } catch (GroupNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }
