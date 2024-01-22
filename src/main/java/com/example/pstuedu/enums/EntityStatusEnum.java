@@ -1,4 +1,4 @@
-package com.example.ptsuedu.Enum;
+package com.example.pstuedu.enums;
 
 public enum EntityStatusEnum {
     ACTIVE,
