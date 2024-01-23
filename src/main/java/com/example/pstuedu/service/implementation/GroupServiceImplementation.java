@@ -2,6 +2,7 @@ package com.example.pstuedu.service.implementation;
 
 import com.example.pstuedu.entity.Group;
 import com.example.pstuedu.exception.GroupNotFoundException;
+import com.example.pstuedu.exception.GroupNotUniqueException;
 import com.example.pstuedu.repository.GroupRepository;
 import com.example.pstuedu.service.GroupService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,10 @@ public class GroupServiceImplementation implements GroupService {
     private final GroupRepository groupRepository;
 
     @Override
-    public void createGroup(Group group) {
+    public void createGroup(Group group) throws GroupNotUniqueException {
+        if (!groupRepository.findGroupByName(group.getName()).isEmpty()){
+            throw new GroupNotUniqueException("Данная группа уже существует!");
+        }
         groupRepository.save(group);
     }
 
@@ -26,7 +30,9 @@ public class GroupServiceImplementation implements GroupService {
     }
 
     @Override
-    public void deleteGroupById(Long id) {
-        groupRepository.deleteById(id);
+    public void deleteGroupById(Long id) throws GroupNotFoundException {
+        Group group = findGroupById(id);
+
+        groupRepository.delete(group);
     }
 }
