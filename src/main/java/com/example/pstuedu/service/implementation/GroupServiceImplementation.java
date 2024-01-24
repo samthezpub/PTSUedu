@@ -4,6 +4,7 @@ import com.example.pstuedu.entity.Group;
 import com.example.pstuedu.entity.User;
 import com.example.pstuedu.exception.GroupNotFoundException;
 import com.example.pstuedu.exception.GroupNotUniqueException;
+import com.example.pstuedu.exception.UserAlreadyHaveGroupException;
 import com.example.pstuedu.exception.UserNotFoundException;
 import com.example.pstuedu.repository.GroupRepository;
 import com.example.pstuedu.service.GroupService;
@@ -36,17 +37,35 @@ public class GroupServiceImplementation implements GroupService {
     }
 
     @Override
-    public void addUserToGroup(Long userId, Long groupId) throws UserNotFoundException, GroupNotFoundException {
+    public void updateGroup(Group group) {
+            // Волшебная штука, которая не только добавляет новый, но и обновляет
+            groupRepository.save(group);
+    }
 
+
+    // Устанавливает юзеру группу, а группе плюсует юзера
+    @Override
+    public void addUserToGroup(Long userId, Long groupId) throws UserNotFoundException, GroupNotFoundException, UserAlreadyHaveGroupException {
+
+        // Получаем юзера и группу
         User userById = userService.findUserById(userId);
         Group groupById = findGroupById(groupId);
 
+        userById.setGroup(groupById);
+
+        // Получаю лист юзеров группы и добавляю юзера
         List<User> groupUsers = groupById.getUsers();
         groupUsers.add(userById);
 
+        // Если юзера нет в группах
+        if (groupUsers.contains(userById)){
+            throw new UserAlreadyHaveGroupException("У пользователя уже есть группа!");
+        }
+
+        // Устанавливаю юзеров и провожу апдейт
         groupById.setUsers(groupUsers);
-
-
+        updateGroup(groupById);
+        userService.updateUser(userById);
     }
 
     @Override

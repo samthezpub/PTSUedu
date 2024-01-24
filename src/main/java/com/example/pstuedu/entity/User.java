@@ -3,6 +3,8 @@ package com.example.pstuedu.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "\"user\"")
@@ -19,5 +21,8 @@ public class User {
     private String password;
 
     private String firstName, lastName, patronymic;
+
+    @ManyToOne
+    private Group group;
 
 }

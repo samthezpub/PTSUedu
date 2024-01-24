@@ -29,11 +29,11 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public void updateUser(User user) {
-        // TODO updateUser
+        userRepository.save(user);
     }
 
     @Override
-    public void deleteUser(Long user) {
-        // TODO saveUser
+    public void deleteUser(Long user_id) {
+        userRepository.deleteById(user_id);
     }
 }

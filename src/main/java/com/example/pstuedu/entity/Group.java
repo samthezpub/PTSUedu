@@ -17,6 +17,6 @@ public class Group {
 
     private String name;
 
-    @ManyToMany
+    @OneToMany
     private List<User> users;
 }

@@ -3,6 +3,8 @@ package com.example.pstuedu.controller;
 import com.example.pstuedu.entity.Group;
 import com.example.pstuedu.exception.GroupNotFoundException;
 import com.example.pstuedu.exception.GroupNotUniqueException;
+import com.example.pstuedu.exception.UserAlreadyHaveGroupException;
+import com.example.pstuedu.exception.UserNotFoundException;
 import com.example.pstuedu.service.implementation.GroupServiceImplementation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -44,5 +46,24 @@ public class GroupController {
         } catch (GroupNotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
+    }
+
+    // Устанавливает юзеру группу, а группе плюсует юзера
+    @PostMapping("/get/{group_id}/adduser/{user_id}")
+    public ResponseEntity<?> addUser(@PathVariable Long group_id, @PathVariable Long user_id){
+        try {
+            groupService.addUserToGroup(user_id, group_id);
+
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+
+        } catch (GroupNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+
+        } catch (UserAlreadyHaveGroupException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+
+        return new ResponseEntity<>("Добавление пользователя в группу успешно!", HttpStatus.OK);
     }
 }
