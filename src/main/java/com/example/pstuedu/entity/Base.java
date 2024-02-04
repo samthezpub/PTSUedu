@@ -19,6 +19,4 @@ public abstract class Base {
     private EntityStatusEnum status;
 
     private Date creationDate;
-    private Date updationDate;
-    private Date deletionDate;
 }
