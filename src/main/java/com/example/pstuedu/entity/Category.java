@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Category extends Base {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
