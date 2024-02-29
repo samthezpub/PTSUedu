@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "\"user\"")
-public class User extends Base {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,5 +14,10 @@ public class User extends Base {
 
     @Column(name = "username", nullable = false, unique = true)
     private String username;
+    private String email;
+
+    private String password;
+
+    private String firstName, lastName, patronymic;
 
 }
