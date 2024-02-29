@@ -1,11 +1,18 @@
--- auto-generated definition
 create table "group"
 (
-    id            bigint not null primary key,
-    name          varchar(255),
-    status        varchar(255)
-        constraint group_status_check
-            check ((status)::text = ANY
-                   ((ARRAY ['ACTIVE'::character varying, 'DISABLED'::character varying, 'DELETED'::character varying])::text[])),
-    creation_date date
-    );
+    id   bigserial
+        primary key,
+    name varchar(255)
+);
+
+alter table "group"
+    owner to postgres;
+
+insert into public.group (id, name)
+values  (1, 'ИБ/1-23'),
+        (2, 'ИБ/2-23'),
+        (3, 'ИБ/У-23'),
+        (4, 'ИТ/1-23'),
+        (5, 'ИТ/2-23'),
+        (6, 'ИТ/3-23'),
+        (7, 'ИТ/У-23');
