@@ -1,7 +1,6 @@
 package com.example.pstuedu.controller;
 
 import com.example.pstuedu.entity.Subject;
-import com.example.pstuedu.exception.GroupNotUniqueException;
 import com.example.pstuedu.exception.SubjectNotFoundException;
 import com.example.pstuedu.service.SubjectService;
 import lombok.AllArgsConstructor;
