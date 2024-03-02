@@ -20,4 +20,7 @@ public class Lesson {
     @OneToMany
     private List<Attachment> attachments;
 
+    @OneToOne
+    private Homework homework;
+
 }
