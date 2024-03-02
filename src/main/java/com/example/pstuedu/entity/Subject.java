@@ -18,7 +18,4 @@ public class Subject {
     @OneToMany
     private List<Group> groupList;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Category category;
-
 }

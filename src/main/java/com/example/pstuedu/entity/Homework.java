@@ -3,19 +3,18 @@ package com.example.pstuedu.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
-@Data
 @Entity
-public class Category {
-
+@Data
+public class Homework {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @OneToOne
+    private Lesson lesson;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Subject> subjects;
+    @Column(name = "text")
+    private String text;
 
+    // TODO editor text
 }

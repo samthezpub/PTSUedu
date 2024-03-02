@@ -38,7 +38,7 @@ public class GroupServiceImplementation implements GroupService {
 
     @Override
     public void updateGroup(Group group) {
-            // Волшебная штука, которая не только добавляет новый, но и обновляет
+            // Волшебная штука, которая обновляет
             groupRepository.save(group);
     }
 
