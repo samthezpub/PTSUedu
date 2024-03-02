@@ -36,7 +36,7 @@ public class LessonController {
     }
 
     @GetMapping("/get/{lesson_id}/homework")
-    public ResponseEntity<?> getHomework(@PathVariable Long lesson_id){
+    public ResponseEntity<?> getHomework(@PathVariable Long lesson_id) {
         try {
             Lesson lessonById = lessonService.findLessonById(lesson_id);
             return new ResponseEntity<>(lessonById.getHomework(), HttpStatus.OK);
@@ -47,18 +47,32 @@ public class LessonController {
 
     //TODO сделать
     @PostMapping("/get/{lesson_id}/homework/create")
-    public ResponseEntity<?> createHomework(@PathVariable Long lesson_id, @RequestBody Homework homework){
-        homeworkService.createHomework(homework);
+    public ResponseEntity<?> createHomework(@PathVariable Long lesson_id, @RequestBody Homework homework) {
+        // Получаем Lesson и присваиваем Homework Lesson
+        Lesson lessonById;
 
         try {
-            Lesson lessonById = lessonService.findLessonById(lesson_id);
-            lessonById.setHomework(homework);
-            lessonService.updateLesson(lessonById);
+            // Получение
+            lessonById = lessonService.findLessonById(lesson_id);
 
-            return new ResponseEntity<>("Задание успешно создано!", HttpStatus.OK);
+            // устанавливаем домашке урок
+            // Если у урока уже есть домашка ошибочка
+            if (lessonById.getHomework() != null){
+                return new ResponseEntity<>("У этого урока уже есть домашка", HttpStatus.CONFLICT);
+            }
+            homework.setLesson(lessonById);
         } catch (LessonNotFoundException e) {
-            return new ResponseEntity<>("Урок не найден!", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
+        // Создаём домашку в бд
+        homeworkService.createHomework(homework);
+
+        // Устанавливаем домашку уроку
+        lessonById.setHomework(homework);
+        // Обновляем урок
+        lessonService.updateLesson(lessonById);
+
+        return new ResponseEntity<>("Задание успешно создано!", HttpStatus.OK);
     }
 
 
@@ -88,7 +102,6 @@ public class LessonController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
-
 
 
 }
