@@ -45,7 +45,6 @@ public class LessonController {
         }
     }
 
-    //TODO сделать
     @PostMapping("/get/{lesson_id}/homework/create")
     public ResponseEntity<?> createHomework(@PathVariable Long lesson_id, @RequestBody Homework homework) {
         // Получаем Lesson и присваиваем Homework Lesson
