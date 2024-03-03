@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GradeRepository extends JpaRepository<Grade, Long> {
+    Boolean existsGradeByHomeworkIdAndUserId(Long homework_id, Long user_id);
 }

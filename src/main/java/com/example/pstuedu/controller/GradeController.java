@@ -27,6 +27,14 @@ public class GradeController {
     @PostMapping("/create/homework/{homework_id}/user/{user_id}")
     private ResponseEntity<?> createGrade(@RequestBody Grade grade, @PathVariable Long homework_id, @PathVariable Long user_id){
         try {
+            // Если есть оценка с такой домашкой и юзером
+            Boolean isExist = gradeService.existsGradeByHomeworkIdAndUserId(homework_id, user_id);
+
+            if (isExist){
+                //todo Можно потом сделать вместо сообщения обновление оценки
+                return new ResponseEntity<>("У ученика уже есть оценка", HttpStatus.CONFLICT);
+            }
+
             // Установка User'a
             User userById = userService.findUserById(user_id);
             grade.setUser(userById);

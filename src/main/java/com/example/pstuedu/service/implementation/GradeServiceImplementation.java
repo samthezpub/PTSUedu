@@ -24,6 +24,11 @@ public class GradeServiceImplementation implements GradeService {
     }
 
     @Override
+    public Boolean existsGradeByHomeworkIdAndUserId(Long homework_id, Long user_id) {
+        return gradeRepository.existsGradeByHomeworkIdAndUserId(homework_id, user_id);
+    }
+
+    @Override
     public void updateGrade(Grade grade) {
         gradeRepository.save(grade);
     }
