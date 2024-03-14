@@ -6,7 +6,6 @@ import com.example.pstuedu.service.SubjectService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/subjects")
+
+@CrossOrigin(origins = "http://localhost:3000")
 public class SubjectController {
 
     private SubjectService subjectService;
